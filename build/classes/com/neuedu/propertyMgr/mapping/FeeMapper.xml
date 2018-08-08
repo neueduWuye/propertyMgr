@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.neuedu.propertyMgr.dao.FeeMapper" >
+  <resultMap id="BaseResultMap" type="com.neuedu.propertyMgr.model.Fee" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="owner" property="owner" jdbcType="VARCHAR" />
+    <result column="peoperty" property="peoperty" jdbcType="DOUBLE" />
+    <result column="peo_type" property="peoType" jdbcType="INTEGER" />
+    <result column="repair" property="repair" jdbcType="DOUBLE" />
+    <result column="repair_type" property="repairType" jdbcType="INTEGER" />
+    <result column="parking" property="parking" jdbcType="DOUBLE" />
+    <result column="park_type" property="parkType" jdbcType="INTEGER" />
+    <result column="other" property="other" jdbcType="DOUBLE" />
+    <result column="all" property="all" jdbcType="DOUBLE" />
+    <result column="overage" property="overage" jdbcType="DOUBLE" />
+    <result column="last_time" property="lastTime" jdbcType="TIMESTAMP" />
+    <result column="this_time" property="thisTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, owner, peoperty, peo_type, repair, repair_type, parking, park_type, other, all, 
+    overage, last_time, this_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.neuedu.propertyMgr.model.FeeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from fee
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from fee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from fee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.neuedu.propertyMgr.model.FeeExample" >
+    delete from fee
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.neuedu.propertyMgr.model.Fee" >
+    insert into fee (id, owner, peoperty, 
+      peo_type, repair, repair_type, 
+      parking, park_type, other, 
+      all, overage, last_time, 
+      this_time)
+    values (#{id,jdbcType=INTEGER}, #{owner,jdbcType=VARCHAR}, #{peoperty,jdbcType=DOUBLE}, 
+      #{peoType,jdbcType=INTEGER}, #{repair,jdbcType=DOUBLE}, #{repairType,jdbcType=INTEGER}, 
+      #{parking,jdbcType=DOUBLE}, #{parkType,jdbcType=INTEGER}, #{other,jdbcType=DOUBLE}, 
+      #{all,jdbcType=DOUBLE}, #{overage,jdbcType=DOUBLE}, #{lastTime,jdbcType=TIMESTAMP}, 
+      #{thisTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.neuedu.propertyMgr.model.Fee" >
+    insert into fee
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="owner != null" >
+        owner,
+      </if>
+      <if test="peoperty != null" >
+        peoperty,
+      </if>
+      <if test="peoType != null" >
+        peo_type,
+      </if>
+      <if test="repair != null" >
+        repair,
+      </if>
+      <if test="repairType != null" >
+        repair_type,
+      </if>
+      <if test="parking != null" >
+        parking,
+      </if>
+      <if test="parkType != null" >
+        park_type,
+      </if>
+      <if test="other != null" >
+        other,
+      </if>
+      <if test="all != null" >
+        all,
+      </if>
+      <if test="overage != null" >
+        overage,
+      </if>
+      <if test="lastTime != null" >
+        last_time,
+      </if>
+      <if test="thisTime != null" >
+        this_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="owner != null" >
+        #{owner,jdbcType=VARCHAR},
+      </if>
+      <if test="peoperty != null" >
+        #{peoperty,jdbcType=DOUBLE},
+      </if>
+      <if test="peoType != null" >
+        #{peoType,jdbcType=INTEGER},
+      </if>
+      <if test="repair != null" >
+        #{repair,jdbcType=DOUBLE},
+      </if>
+      <if test="repairType != null" >
+        #{repairType,jdbcType=INTEGER},
+      </if>
+      <if test="parking != null" >
+        #{parking,jdbcType=DOUBLE},
+      </if>
+      <if test="parkType != null" >
+        #{parkType,jdbcType=INTEGER},
+      </if>
+      <if test="other != null" >
+        #{other,jdbcType=DOUBLE},
+      </if>
+      <if test="all != null" >
+        #{all,jdbcType=DOUBLE},
+      </if>
+      <if test="overage != null" >
+        #{overage,jdbcType=DOUBLE},
+      </if>
+      <if test="lastTime != null" >
+        #{lastTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="thisTime != null" >
+        #{thisTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.neuedu.propertyMgr.model.FeeExample" resultType="java.lang.Integer" >
+    select count(*) from fee
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update fee
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.owner != null" >
+        owner = #{record.owner,jdbcType=VARCHAR},
+      </if>
+      <if test="record.peoperty != null" >
+        peoperty = #{record.peoperty,jdbcType=DOUBLE},
+      </if>
+      <if test="record.peoType != null" >
+        peo_type = #{record.peoType,jdbcType=INTEGER},
+      </if>
+      <if test="record.repair != null" >
+        repair = #{record.repair,jdbcType=DOUBLE},
+      </if>
+      <if test="record.repairType != null" >
+        repair_type = #{record.repairType,jdbcType=INTEGER},
+      </if>
+      <if test="record.parking != null" >
+        parking = #{record.parking,jdbcType=DOUBLE},
+      </if>
+      <if test="record.parkType != null" >
+        park_type = #{record.parkType,jdbcType=INTEGER},
+      </if>
+      <if test="record.other != null" >
+        other = #{record.other,jdbcType=DOUBLE},
+      </if>
+      <if test="record.all != null" >
+        all = #{record.all,jdbcType=DOUBLE},
+      </if>
+      <if test="record.overage != null" >
+        overage = #{record.overage,jdbcType=DOUBLE},
+      </if>
+      <if test="record.lastTime != null" >
+        last_time = #{record.lastTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.thisTime != null" >
+        this_time = #{record.thisTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update fee
+    set id = #{record.id,jdbcType=INTEGER},
+      owner = #{record.owner,jdbcType=VARCHAR},
+      peoperty = #{record.peoperty,jdbcType=DOUBLE},
+      peo_type = #{record.peoType,jdbcType=INTEGER},
+      repair = #{record.repair,jdbcType=DOUBLE},
+      repair_type = #{record.repairType,jdbcType=INTEGER},
+      parking = #{record.parking,jdbcType=DOUBLE},
+      park_type = #{record.parkType,jdbcType=INTEGER},
+      other = #{record.other,jdbcType=DOUBLE},
+      all = #{record.all,jdbcType=DOUBLE},
+      overage = #{record.overage,jdbcType=DOUBLE},
+      last_time = #{record.lastTime,jdbcType=TIMESTAMP},
+      this_time = #{record.thisTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.propertyMgr.model.Fee" >
+    update fee
+    <set >
+      <if test="owner != null" >
+        owner = #{owner,jdbcType=VARCHAR},
+      </if>
+      <if test="peoperty != null" >
+        peoperty = #{peoperty,jdbcType=DOUBLE},
+      </if>
+      <if test="peoType != null" >
+        peo_type = #{peoType,jdbcType=INTEGER},
+      </if>
+      <if test="repair != null" >
+        repair = #{repair,jdbcType=DOUBLE},
+      </if>
+      <if test="repairType != null" >
+        repair_type = #{repairType,jdbcType=INTEGER},
+      </if>
+      <if test="parking != null" >
+        parking = #{parking,jdbcType=DOUBLE},
+      </if>
+      <if test="parkType != null" >
+        park_type = #{parkType,jdbcType=INTEGER},
+      </if>
+      <if test="other != null" >
+        other = #{other,jdbcType=DOUBLE},
+      </if>
+      <if test="all != null" >
+        all = #{all,jdbcType=DOUBLE},
+      </if>
+      <if test="overage != null" >
+        overage = #{overage,jdbcType=DOUBLE},
+      </if>
+      <if test="lastTime != null" >
+        last_time = #{lastTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="thisTime != null" >
+        this_time = #{thisTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.neuedu.propertyMgr.model.Fee" >
+    update fee
+    set owner = #{owner,jdbcType=VARCHAR},
+      peoperty = #{peoperty,jdbcType=DOUBLE},
+      peo_type = #{peoType,jdbcType=INTEGER},
+      repair = #{repair,jdbcType=DOUBLE},
+      repair_type = #{repairType,jdbcType=INTEGER},
+      parking = #{parking,jdbcType=DOUBLE},
+      park_type = #{parkType,jdbcType=INTEGER},
+      other = #{other,jdbcType=DOUBLE},
+      all = #{all,jdbcType=DOUBLE},
+      overage = #{overage,jdbcType=DOUBLE},
+      last_time = #{lastTime,jdbcType=TIMESTAMP},
+      this_time = #{thisTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
