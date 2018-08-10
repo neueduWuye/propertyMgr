@@ -1,0 +1,197 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-size: 9px;
+	font-family: "微软雅黑";
+	min-width: 980px;
+}
+ul,li{
+	display: block;
+	list-style: none;
+}
+img{
+	border: 0;
+}
+/*-----------------------分割线-----------------------*/
+#mainBody{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: -1;
+}
+.cloud{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url(../img/cloud.png) no-repeat;
+	z-index: 1;
+	opacity: 0.5;
+}
+#cloud2 {
+	z-index:2;
+	}
+/*-----------------------分割线-----------------------*/	
+.logintop{
+	height: 47px;
+	position: absolute;
+	top: 0;
+	background: url(../img/loginbg1.png)repeat-x;
+	z-index: 100;
+	width: 100%;
+}
+.logintop span{
+	color: #000000;
+	font-size: 14px;
+	line-height: 47px;
+	background:url(../img/loginsj.png) no-repeat 21px 18px; 
+	text-indent:44px; 
+	color:#afc5d2;
+	float: left;
+}
+/*-----------------------分割线-----------------------*/	
+.loginbody{
+	background: url(../img/loginbg3.png)no-repeat center center;
+	width: 100%;
+	height: 600px;
+	overflow: hidden;
+	position: absolute;
+	top: 125px;
+	left: 200px;	
+}
+.systemlogo{
+	width: 980px;
+	height: 100px;
+	float: left;
+}
+.systemlogo img{
+	width: 140px;
+	height: 100px;
+	float: left;
+	margin-top: -30px;
+	margin-left: 240px;	
+}
+.systemlogo2{
+	width: 540px;
+	height: 100px;
+	font-size: 42px;
+	opacity: 0.5;
+	color: #F5F5F5;
+	margin-left: 5px;
+	letter-spacing: 10px;
+	float: left;
+}
+.loginbox{
+	width: 850px;
+	height: 450px;
+	background: url(../img/logininfo.png) no-repeat;
+	background-size: 100% 100%;
+	margin-top: 30px;
+	position: absolute;
+	top: 60px;
+	left: 110px;
+}
+.loginbox ul{
+	margin-top: 88px;
+	margin-left: 350px;
+}
+.loginbox ul li{
+	margin-bottom: 25px;
+}
+.loginuser{
+	width: 193px;
+	height: 48px;
+	background: url(../img/loginuser.png) no-repeat;
+	border: none;
+	line-height: 48px;
+	padding-left: 150px;
+	font-size: 14px;
+	font-weight: normal;
+	
+}
+.loginpwd{
+	width: 193px;
+	height: 48px;
+	background: url(../img/loginpassword.png) no-repeat;
+	border: none;
+	line-height: 48px;
+	padding-left: 150px;
+	font-size: 14px;
+	color: #90A2BC;
+}
+#usertype{
+	width: 299px;
+	height: 30px;
+	font-size: 18px;
+	line-height: 48px;
+	position: absolute;
+	top: 270px;
+	left: 320px;
+	color: #DAEAF4;
+}
+#usertype input{
+	margin-right: 50px;
+	position: relative;
+	top: 18px;
+	left: 100px;
+}
+#usertype span{
+	margin-left: 2px;
+	position: relative;
+	top: 17px;
+	left: 56px;
+}
+.yzm{
+	width: 341px;
+	height: 40px;
+	background: url(../img/yzmbg.png)no-repeat;
+	padding-bottom: 5px;
+	border: none;
+	opacity: 0.5;
+}
+.yzm span{
+	display: block;
+	float: left;
+	width: 227px;
+	height: 40px;	
+}
+.yzm span input{
+	width: 183px;
+	height: 40px;
+	line-height: 40px;
+	padding-left: 44px;
+	font-size: 14px;
+	background-color: #daeaf4;
+}
+.yzm cite{
+	float: right;
+	width: 114px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 18px;
+	color: #fff;
+	text-align: center;
+}
+.loginbtn,.loginregist{
+	width: 111px;
+	height: 35px;
+	background: url(../img/buttonbg.png)repeat-x;
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+	cursor: pointer;
+	line-height: 35px;
+	position: relative;
+	top: 45px;
+	left: 15px;
+	opacity: 0.5;
+}
+.loginregist{
+	position: relative;
+	top: 45px;
+	left: 60px;
+	
+}
