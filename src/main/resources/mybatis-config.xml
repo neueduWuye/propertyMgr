@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!--这里给实体类取别名，方便在mapper配置文件中使用--> 
+	<typeAliases>
+		<package name="com.neuedu.propertyMgr.model" />
+	</typeAliases>
+</configuration>
+  
