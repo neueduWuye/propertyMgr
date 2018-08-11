@@ -11,10 +11,13 @@ import com.neuedu.propertyMgr.service.VillageService;
 public class VillageServiceImpl implements VillageService{
 	@Autowired VillageMapper villageMapper;
 
-	public Village getVillageByName(String name) {
+	@Override
+	public Village getVillageById(int id) {
 		
-		return villageMapper.selectByName(name);
+		return villageMapper.selectByPrimaryKey(id);
 	}
+
+
 	
 	
 }

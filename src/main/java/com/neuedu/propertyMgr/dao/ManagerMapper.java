@@ -15,6 +15,8 @@ public interface ManagerMapper {
     int insert(Manager record);
 
     int insertSelective(Manager record);
+    
+    Manager getManagerByNamePwd(String name,String pwd);
 
     List<Manager> selectByExample(ManagerExample example);
 
