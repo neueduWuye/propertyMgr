@@ -15,7 +15,7 @@ public class Owner {
 
     private String number;
 
-    private Integer phone;
+    private String phone;
 
     private String idcard;
 
@@ -73,11 +73,11 @@ public class Owner {
         this.number = number == null ? null : number.trim();
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

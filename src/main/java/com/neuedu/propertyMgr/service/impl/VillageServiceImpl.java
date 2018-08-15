@@ -11,7 +11,7 @@ import com.neuedu.propertyMgr.service.VillageService;
 public class VillageServiceImpl implements VillageService{
 	@Autowired VillageMapper villageMapper;
 
-	@Override
+	
 	public Village getVillageById(int id) {
 		
 		return villageMapper.selectByPrimaryKey(id);

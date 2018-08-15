@@ -8,7 +8,7 @@
     <result column="sex" property="sex" jdbcType="INTEGER" />
     <result column="birthday" property="birthday" jdbcType="DATE" />
     <result column="number" property="number" jdbcType="VARCHAR" />
-    <result column="phone" property="phone" jdbcType="INTEGER" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="idCard" property="idcard" jdbcType="VARCHAR" />
     <result column="family" property="family" jdbcType="INTEGER" />
     <result column="email" property="email" jdbcType="VARCHAR" />
@@ -89,6 +89,13 @@
       order by ${orderByClause}
     </if>
   </select>
+  <select id="selectAllOwner" resultMap="BaseResultMap">
+  	select  <include refid="Base_Column_List" /> from owner
+  </select>
+  <select id="selectByNamePwd" resultMap="BaseResultMap" >
+  	select <include refid="Base_Column_List" /> from owner
+  	where name=#{name} and pwd=#{pwd}
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
@@ -112,7 +119,7 @@
       email, join_date)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, 
       #{sex,jdbcType=INTEGER}, #{birthday,jdbcType=DATE}, #{number,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=INTEGER}, #{idcard,jdbcType=VARCHAR}, #{family,jdbcType=INTEGER}, 
+      #{phone,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, #{family,jdbcType=INTEGER}, 
       #{email,jdbcType=VARCHAR}, #{joinDate,jdbcType=DATE})
   </insert>
   <insert id="insertSelective" parameterType="com.neuedu.propertyMgr.model.Owner" >
@@ -172,7 +179,7 @@
         #{number,jdbcType=VARCHAR},
       </if>
       <if test="phone != null" >
-        #{phone,jdbcType=INTEGER},
+        #{phone,jdbcType=VARCHAR},
       </if>
       <if test="idcard != null" >
         #{idcard,jdbcType=VARCHAR},
@@ -216,7 +223,7 @@
         number = #{record.number,jdbcType=VARCHAR},
       </if>
       <if test="record.phone != null" >
-        phone = #{record.phone,jdbcType=INTEGER},
+        phone = #{record.phone,jdbcType=VARCHAR},
       </if>
       <if test="record.idcard != null" >
         idCard = #{record.idcard,jdbcType=VARCHAR},
@@ -243,7 +250,7 @@
       sex = #{record.sex,jdbcType=INTEGER},
       birthday = #{record.birthday,jdbcType=DATE},
       number = #{record.number,jdbcType=VARCHAR},
-      phone = #{record.phone,jdbcType=INTEGER},
+      phone = #{record.phone,jdbcType=VARCHAR},
       idCard = #{record.idcard,jdbcType=VARCHAR},
       family = #{record.family,jdbcType=INTEGER},
       email = #{record.email,jdbcType=VARCHAR},
@@ -271,7 +278,7 @@
         number = #{number,jdbcType=VARCHAR},
       </if>
       <if test="phone != null" >
-        phone = #{phone,jdbcType=INTEGER},
+        phone = #{phone,jdbcType=VARCHAR},
       </if>
       <if test="idcard != null" >
         idCard = #{idcard,jdbcType=VARCHAR},
@@ -295,7 +302,7 @@
       sex = #{sex,jdbcType=INTEGER},
       birthday = #{birthday,jdbcType=DATE},
       number = #{number,jdbcType=VARCHAR},
-      phone = #{phone,jdbcType=INTEGER},
+      phone = #{phone,jdbcType=VARCHAR},
       idCard = #{idcard,jdbcType=VARCHAR},
       family = #{family,jdbcType=INTEGER},
       email = #{email,jdbcType=VARCHAR},

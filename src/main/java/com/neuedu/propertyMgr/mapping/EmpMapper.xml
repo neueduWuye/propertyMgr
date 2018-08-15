@@ -157,6 +157,9 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+  <select id="selectByDept" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  	select  * from emp where dept=#{dept}
+  </select>
   <update id="updateByExampleSelective" parameterType="map" >
     update emp
     <set >

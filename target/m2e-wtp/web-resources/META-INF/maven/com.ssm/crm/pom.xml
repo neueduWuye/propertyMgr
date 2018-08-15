@@ -8,32 +8,8 @@
 	<name>blog Maven Webapp</name> 
 	<url>http://maven.apache.org</url>
 	
-	<build>
-    <resources>
-         <resource>
-            <directory>src/main/java</directory>
-            <includes>
-                    <include>**/*.xml</include>
-             </includes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-          </resource>
-     </resources>
-     
-     <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.0</version>
-            <configuration>
-                <source>1.8</source>
-                <target>1.8</target>
-            </configuration>
-        </plugin>
-    </plugins>
-</build>
-	<!-- 版本配置 -->
+	 
+	<!-- 版本配置 --> 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.1.4.RELEASE</spring.version>

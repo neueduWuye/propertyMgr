@@ -45,4 +45,20 @@ public class ManagerServiceImpl implements ManagerService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	/*
+	*  管理员登录
+	*/
+	
+	public Manager managerLogin(String name, String pwd) {
+		// TODO Auto-generated method stub
+		return managerMapper.getManagerByNamePwd(name, pwd);
+	}
+	/*
+	*  管理员注册
+	*/
+	
+	public int managerRegist(Manager manager) {
+		// TODO Auto-generated method stub
+		return managerMapper.insert(manager);
+	}
 }

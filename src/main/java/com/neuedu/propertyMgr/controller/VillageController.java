@@ -17,7 +17,6 @@ public class VillageController {
 	
 	@Autowired
 	private VillageService villageService;
-	private ManagerMapper ManagerMapper;
 	
 	/*
 	 * 获取小区信息

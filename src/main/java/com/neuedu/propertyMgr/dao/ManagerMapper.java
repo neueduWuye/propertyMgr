@@ -16,7 +16,8 @@ public interface ManagerMapper {
 
     int insertSelective(Manager record);
     
-    Manager getManagerByNamePwd(String name,String pwd);
+    //通过姓名密码获取管理员对象
+    Manager getManagerByNamePwd(@Param(value="name")String name,@Param(value="pwd")String pwd);
 
     List<Manager> selectByExample(ManagerExample example);
 

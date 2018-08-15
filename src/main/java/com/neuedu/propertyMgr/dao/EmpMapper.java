@@ -19,6 +19,8 @@ public interface EmpMapper {
     List<Emp> selectByExample(EmpExample example);
 
     Emp selectByPrimaryKey(Integer id);
+    
+    List<Emp> selectByDept(int dept);//根据部门查找职员表
 
     int updateByExampleSelective(@Param("record") Emp record, @Param("example") EmpExample example);
 
