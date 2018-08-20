@@ -1,48 +1,70 @@
 package com.neuedu.propertyMgr.controller;
 
-import javax.swing.text.View;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mysql.fabric.xmlrpc.base.Data;
-import com.neuedu.propertyMgr.dao.ManagerMapper;
-import com.neuedu.propertyMgr.model.Manager;
-@Controller
+import com.neuedu.propertyMgr.pojo.Manager;
+import com.neuedu.propertyMgr.service.ManagerService;
+
+
+@RestController
 public class ManagerController {
-	@Autowired 
-	private ManagerMapper ManagerMapper;
-	/*
-	 * 获取管理员信息
-	 * 登录验证
-	 */
-	@RequestMapping(value="/managerLogin")
-	public @ResponseBody String managerLogin(@RequestParam("name") String name,@RequestParam("pwd") String pwd)
+    @Autowired
+    private ManagerService managerService;
+    /*
+     *管理员登录
+     * */
+	@RequestMapping(value="/getManager",method=RequestMethod.GET)
+	public String getManagerByNamePwd(Manager manager)
 	throws Exception{
-		Manager manager = ManagerMapper.getManagerByNamePwd(name, pwd);
-		ObjectMapper json=new ObjectMapper();
-		String strjson=json.writeValueAsString(manager);
-		return strjson;
+		Manager managers = managerService.getManagerByName(manager);
+		 ObjectMapper json=new ObjectMapper();
+		 String strJson=json.writeValueAsString(managers);
+		return strJson;
 	}
-	/*
-	 * 获取表单所有元素
-	 * 进行注册管理员账号
-	 */
-	@RequestMapping(value="/managerRegist")
-	public @ResponseBody ModelAndView managerRegist(@ModelAttribute Manager manager) throws Exception{
-		
-		Manager manager2 = ManagerMapper.getManagerByNamePwd(manager.getName(), manager.getPwd());
-		ModelAndView modelAndView=new ModelAndView();
-		modelAndView.addObject(manager);
-		//指定视图
-		modelAndView.setViewName("webapp/login");
-		return modelAndView;
+	@RequestMapping(value="/addManager", method=RequestMethod.POST)
+	public int addManagerById(Manager manager) {
+		int rs=managerService.addManagerById(manager);
+		if(rs>0) {
+			System.out.println("注册成功");
+		}
+		else {
+			System.out.println("注册失败");
+		}
+		return rs;
+	}
+	@RequestMapping(value="/updateManager",method=RequestMethod.PUT)
+	public int updateManagerById(Manager manager) {
+		int rs=managerService.updateManagerById(manager);
+		if(rs>0) {
+			System.out.println("修改成功");
+		}
+		else {
+			System.out.println("修改失败");
+		}
+		return rs;
+	}
+	@RequestMapping(value="/deleteManager" , method=RequestMethod.DELETE)
+	public int deleteManagerById(int id) {
+		int rs=managerService.deleteManagerById(id);
+		if(rs>0) {
+			System.out.println("删除成功");
+		}
+		else {
+			System.out.println("删除失败");
+		}
+		return rs;
 		
 	}
 }
+    
+
