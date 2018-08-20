@@ -1,0 +1,131 @@
+/*reset*/
+body,ul,li,h2,h3,div{margin:0;padding:0;border:0;}
+body{font-size:12px; font-family:"Microsoft YaHei";}
+ul{list-style-type:none;}
+a{text-decoration:none;}
+
+@font-face {
+    font-family: 'WebSymbolsRegular';
+    src:url('websymbols.woff');
+    src:url('websymbols.woff') format('woff'),
+        url('websymbols.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.list{
+	width:100%;
+}
+.list li{
+	width:265px;
+	margin:0 auto;
+	height:51px;
+	margin-bottom:5px;
+	background:#FFF;
+	box-shadow:2px 2px 4px rgba(0, 0, 0, 0.2);
+	-webkit-transition:1.3s all ease;
+	-moz-transition:1.3s all ease;
+	-ms-transition:1.3s all ease;
+	-o-transition:1.3s all ease;
+	transition:1.3s all ease;
+	overflow:hidden;
+	position:relative;
+}
+.list .border{
+	height:51px;
+	position:absolute;
+	left:0; top:0;
+	width:5px;
+	overflow:hidden;
+	opacity:0;
+	background:#FFF;
+	-webkit-transition:0.3s all ease;
+	-moz-transition:0.3s all ease;
+	-ms-transition:0.3s all ease;
+	-o-transition:0.3s all ease;
+	-webkit-transition:.5s left ease;
+}
+.list li:hover{
+	background:rgb(42,168,188);
+	box-shadow:2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+.list li:hover .border{
+	opacity:1;
+	left:490px;
+}
+.text h2,.text a{
+	font-family:"Microsoft YaHei";
+	color:rgb(42,168,188);
+	text-shadow:1px 2px 4px #999;
+	font-size:18px;
+	font-weight:normal;
+	-webkit-transition:0.3s all ease;
+	-moz-transition:0.3s all ease;
+	-ms-transition:0.3s all ease;
+	-o-transition:0.3s all ease;
+}
+.text h3{
+	font-family:Verdana;
+	font-size:8px;
+	color:rgb(45,122,134);
+	font-weight:normal;
+	-webkit-transition:0.3s all ease;
+	-moz-transition:0.3s all ease;
+	-ms-transition:0.3s all ease;
+	-o-transition:0.3s all ease;
+}
+.list li:hover h2,.list li:hover  a{
+	color:#FFF;
+	font-size:12px;
+	text-shadow:1px 2px 4px #333;
+}
+.list li:hover .text h3{
+	color:#FFF;
+	font-size:16px;
+	margin-top:05px;
+}
+.list li .icon{
+	color:rgb(42,168,188);
+	width:45px;
+	height:45px;
+	margin-left:10px;
+	margin-top:5px;
+	margin-right:10px;
+	float:left;
+	font-size:18px;
+	font-family:'WebSymbolsRegular';
+	line-height:45px;
+	text-align:center;
+	-webkit-transition:0.3s all ease;
+	-moz-transition:0.3s all ease;
+	-ms-transition:0.3s all ease;
+	-o-transition:0.3s all ease;
+	text-shadow:0 0 3px #CCCCCC;
+}
+.list li:hover .icon{
+	color:#FFF;
+	font-size:26px;
+}
+.list li:hover .text{
+	-webkit-animation-name:shake;
+	-moz-animation-name:shake;
+}
+.text{
+	width:200px;
+	height:auto;
+	float:left;
+	margin-top:6px;
+	height:30px;
+	-webkit-animation:.5s .2s ease both;
+	-moz-animation:1s .2s ease both;
+}
+
+@-webkit-keyframes shake{
+0%,100%{-webkit-transform:translateX(0);}
+20%,60%{-webkit-transform:translateX(-10px);}
+40%,80%{-webkit-transform:translateX(10px);}
+}
+@-moz-keyframes shake{
+0%,100%{-moz-transform:translateX(0);}
+20%,60%{-moz-transform:translateX(-10px);}
+40%,80%{-moz-transform:translateX(10px);}
+}

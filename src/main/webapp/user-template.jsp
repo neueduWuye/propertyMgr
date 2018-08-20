@@ -2,104 +2,148 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-    <title>智能社区管理系统</title>
+    <title>用户管理系统</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css" />
-	<link type="text/css" href="css/index.css" rel="stylesheet" />
+	<link type="text/css" href="css/template.css" rel="stylesheet" />
     <link type="text/css" href="css/menu.css" rel="stylesheet" />
+	<link href="css/move.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/menu.js"></script>
 	<script type="text/javascript" src="js/plugins.js"></script>
 </head>
 <body>
-<div id="container"> 
+<div id="container">
 	<div id="header">
-		<div id="header-main"> 
-			<div id="menu">
-				<ul class="menu">
-					<li><a href="#" class="parent"><span>楼盘信息</span></a>
-						<div>
-							<ul>
-								<li><a href="#" class="parent"><span>项目介绍</span></a>
-									<div>
-										<ul>
-										<li><a href="#"><span>设计理念</span></a></li>
-										<li><a href="#"><span>楼盘简介</span></a></li>
-										<li><a href="#"><span>区位优势</span></a></li>
-										</ul>
-									</div>
-								</li>
-								<li><a href="#" class="parent"><span>建筑品质</span></a>
-									<div>
-										<ul>
-										<li><a href="#"><span>项目规划</span></a></li>
-										<li><a href="#"><span>技术指标</span></a></li>
-										<li><a href="#"><span>建筑科技</span></a></li>
-										<li><a href="#"><span>配套设施</span></a></li>
-										<li><a href="#"><span>开发团队</span></a></li>
-										</ul>
-									</div>
-								</li>
-								<li><a href="#" class="parent"><span>景观环境</span></a>
-									<div>
-										<ul>
-										<li><a href="#"><span>设计理念</span></a></li>
-										<li><a href="#"><span>黄河北岸</span></a></li>
-										<li><a href="#"><span>湿地公园</span></a></li>
-										<li><a href="#"><span>山水映像</span></a></li>
-										<li><a href="#"><span>古曲观园</span></a></li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</li>
-					<li><a href="#" class="parent"><span>相关配套</span></a>
-						<div>
-							<ul>
-								<li><a href="#" class="parent"><span>公共配套</span></a>
-									<div>
-										<ul>
-										<li><a href="#"><span>商务写字楼</span></a></li>
-										<li><a href="#"><span>商圈</span></a></li>
-										<li><a href="#"><span>周边配套</span></a></li>
-										</ul>
-									</div>
-								</li>
-								<li><a href="#"><span>物业管理</span></a></li>
-							</ul>
-						</div>
-					</li>
-					<li><a href="#" class="parent" class="last"><span>用户中心</span></a>
-						<div>
-							<ul>
-								<li><a href="#"><span>户型体验</span></a></li>
-								<li><a href="#"><span>售楼中心</span></a></li>
-								<li><a href="#"><span>业主论坛</span></a></li>
-							</ul>
-						</div>
-					</li>
-				</ul>
-			</div>
-			<div id="login">
-				<div id="tip">密码错误！</div>
-				<input id="username" type="text" name="username" style="color:gray" value="用户名" onfocus="if(this.value=='用户名'){this.value='';this.style.color='black';}" onblur="if(this.value==''||this.value=='用户名'){this.value='用户名';this.style.color='gray';}"/>
-				<input id="password" type="text" name="password" style="color:gray" value="密码" onfocus="if(this.value=='密码'){this.value=''};this.style.color='black';this.type='password';" onblur="if(this.value==''||this.value=='密码'){this.value='密码';this.style.color='gray';this.type='text';}"/>
-				<a id="login-button"></a>
-				<div id="link">
-					<a id="losepassword"></a>
+		<div id="header-main">
+			<div id="menu-container">
+				<div id="menu">
+					<ul class="menu">
+						<li><a href="#" class="parent"><span>楼盘信息</span></a>
+							<div>
+								<ul>
+									<li><a href="#" class="parent"><span>项目介绍</span></a>
+										<div>
+											<ul>
+											<li><a href="#"><span>设计理念</span></a></li>
+											<li><a href="#"><span>楼盘简介</span></a></li>
+											<li><a href="#"><span>区位优势</span></a></li>
+											</ul>
+										</div>
+									</li>
+									<li><a href="#" class="parent"><span>建筑品质</span></a>
+										<div>
+											<ul>
+											<li><a href="#"><span>项目规划</span></a></li>
+											<li><a href="#"><span>技术指标</span></a></li>
+											<li><a href="#"><span>建筑科技</span></a></li>
+											<li><a href="#"><span>配套设施</span></a></li>
+											<li><a href="#"><span>开发团队</span></a></li>
+											</ul>
+										</div>
+									</li>
+									<li><a href="#" class="parent"><span>景观环境</span></a>
+										<div>
+											<ul>
+											<li><a href="#"><span>设计理念</span></a></li>
+											<li><a href="#"><span>黄河北岸</span></a></li>
+											<li><a href="#"><span>湿地公园</span></a></li>
+											<li><a href="#"><span>山水映像</span></a></li>
+											<li><a href="#"><span>古曲观园</span></a></li>
+											</ul>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li><a href="#" class="parent"><span>相关配套</span></a>
+							<div>
+								<ul>
+									<li><a href="#" class="parent"><span>公共配套</span></a>
+										<div>
+											<ul>
+											<li><a href="#"><span>商务写字楼</span></a></li>
+											<li><a href="#"><span>商圈</span></a></li>
+											<li><a href="#"><span>周边配套</span></a></li>
+											</ul>
+										</div>
+									</li>
+									<li><a href="#"><span>物业管理</span></a></li>
+								</ul>
+							</div>
+						</li>
+						<li><a href="#" class="parent" class="last"><span>用户中心</span></a>
+							<div>
+								<ul>
+									<li><a href="#"><span>户型体验</span></a></li>
+									<li><a href="#"><span>售楼中心</span></a></li>
+									<li><a href="#"><span>业主论坛</span></a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
+			<a id="exit" href="index.html">退出登录</a>
 		</div>
 	</div>
 	<div id="content">
 		<div id="content-main">
+			<div id="content-menu">
+				<div id="jp-container">
+					<ul class="list">
+						<li id="owner">
+							<div class="border" ></div>
+							<span class="icon">U</span>
+							<div class="text">
+								<h2><a href="user-information.html" target="iframe_a">个人信息</a></h2>
+								<h3>personsl information</h3>
+							</div>
+						</li>
+						<li id="family">
+							<div class="border"></div>
+							<span class="icon">O</span>
+							<div class="text">
+								<h2><a href="user-information.html" target="iframe_a">家庭成员</a></h2>
+								<h3>family information</h3>
+							</div>
+						</li>
+						<li id="fee">
+							<div class="border"></div>
+							<span class="icon">L</span>
+							<div class="text">
+								<h2><a href="user-expense.jsp" target="iframe_a">费用查询</a></h2>
+								<h3>expense</h3>
+							</div>
+						</li>
+						<li id="notice">
+							<div class="border"></div>
+							<span class="icon">e</span>
+							<div class="text">
+								<h2><a href="user-notice.html" target="iframe_a">查看通知</a></h2>
+								<h3>notice</h3>
+							</div>
+						</li>
+						<li id="complaint">
+							<div class="border"></div>
+							<span class="icon">Z</span>
+							<div class="text">
+								<h2><a href="user-complaint.html" target="iframe_a">投诉信箱</a></h2>
+								<h3>complaint box</h3>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="content-inline">
+				<iframe id="iframe" frameborder="0" name="iframe_a"></iframe>
+			</div>
 		</div>
 	</div>
 	<div id="footer">
 		<div id="footer-images">
 			<div class="container clearfix">                                                  
                 <div style="position: relative;">         
-                        <h4>广告位<span>招租</span></h4>                   
+                        <h4>广告位<span>招租</span></h4>                  
                         <ul id="clients-scroller" class="our-clients clearfix">                     
                             <li><a href=""><img src="images/ad/1.jpg" alt="Ad 1" title="Ad 1" /></a></li>
                             <li><a href=""><img src="images/ad/2.jpg" alt="Ad 2" title="Ad 2" /></a></li>
@@ -152,6 +196,7 @@
                         </script>           
                     </div>
 			</div>
+
 		</div>
 		<div id="footer-city">
 		</div>
