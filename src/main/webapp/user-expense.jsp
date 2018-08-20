@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<script type="text/javascript" src="js/jquery.js","js/jquery-1.4.2.min.js">
@@ -13,9 +13,10 @@
 	<h1>费用查询</h1>
 	<table class="bordered"> 
 	<tr>
-		<th style="width:100px;text-align:center;">房间号</th><td id="number"></td>
+		<th style="width:100px;text-align:center;">房间号</th><td id="number" style="width: 100px;"></td>
 		<th style="width:100px;text-align:center;">时间</th>
-		<td style="width:100px;"><input type="date"/></td>
+		<td style="width:50px;"><input type="date" id="date1"/></td>
+		<td><input style="width:50px;" type="button" value="查询" id="search"/></td>
 	</tr>
 	</table>
 	<table class="bordered"> 
@@ -25,7 +26,7 @@
 			<th>物业费</th>
 			<th>固定车位费</th>
 			<th>其他</th>
-			<th><input type="button" value="合计" id="but"/></th>
+			<th>合计</th>
 		</tr>
 		</thead>
 		<tr> 
@@ -42,10 +43,10 @@
 			<th style="width:100px;text-align:center;">已付</th><td id="ed"></td>
 			<th style="width:100px;text-align:center;">未付</th><td style="width:120px;text-align:center;" id="not"></td>
 		</tr>
-		<button style="width: 115px;height: 30px;" id="pay">支付</button>
+		<button style="width: 115px;height: 30px;" class="pay1">支付</button>
 		<tr>
 			<th style="width:100px;text-align:center;">支付状态</th><td id="sta">未支付</td>
-			<th style="width:100px;text-align:center;">付款时间</th><td style="width:120px;text-align:center;" id=""></td>
+			<th style="width:100px;text-align:center;">付款时间</th><td style="width:120px;text-align:center;" id="date"></td>
 		</tr>
 	</table>
 	
@@ -53,18 +54,24 @@
 </html>
 <script type="text/javascript">
 	$(function(){
-		$("#but").click(function(){
-			var num,repair=1,pro=2,park=3,other=4;
-			
-			$("#all").html(repair+pro+park+other)
-			
+		alert("xxx") 
+		$("#search").click(function(){
+		var num,repair=1,pro=2,park=3,other=4;
+		$("#number").html();
+		$("#repair").html();
+		$("#pro").html();
+		$("#park").html();
+		$("#other").html();
+		$("#number").html();
+			alert($("#date1").val())
+			$("#all").html(repair+pro+park+other);
 		})
-		$("#pay").click(function(){
-			var todo ,mun;
-			todo=prompt("输入支付金额");
-			mun+=parseInt(todo);
-			$("#ed").html(mun);
+		$(".pay1").click(function(){
+			var todo; 
+			todo=prompt("请支付");
+			$("#ed").html(todo);
 			$("#sta").html("已支付")
+			$("#date").html(Date) 
 		})
 	})
 </script>
