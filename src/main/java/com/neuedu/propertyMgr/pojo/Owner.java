@@ -1,4 +1,4 @@
-package com.neuedu.propertyMgr.model;
+package com.neuedu.propertyMgr.pojo;
 
 import java.util.Date;
 
@@ -15,7 +15,7 @@ public class Owner {
 
     private String number;
 
-    private String phone;
+    private Integer phone;
 
     private String idcard;
 
@@ -73,11 +73,11 @@ public class Owner {
         this.number = number == null ? null : number.trim();
     }
 
-    public String getPhone() {
+    public Integer getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(Integer phone) {
         this.phone = phone;
     }
 

@@ -1,4 +1,4 @@
-package com.neuedu.propertyMgr.model;
+package com.neuedu.propertyMgr.pojo;
 
 import java.util.Date;
 

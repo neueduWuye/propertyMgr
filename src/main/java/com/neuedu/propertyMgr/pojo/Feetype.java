@@ -1,4 +1,4 @@
-package com.neuedu.propertyMgr.model;
+package com.neuedu.propertyMgr.pojo;
 
 public class Feetype {
     private Integer id;

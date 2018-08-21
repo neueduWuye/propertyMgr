@@ -1,6 +1,6 @@
-package com.neuedu.propertyMgr.model;
+package com.neuedu.propertyMgr.pojo;
 
-public class Village {
+public class VSillage {
     private Integer id;
 
     private String name;
@@ -10,8 +10,6 @@ public class Village {
     private String developer;
 
     private Integer amount;
-
-    private Double area;
 
     private Double greenSpace;
 
@@ -55,14 +53,6 @@ public class Village {
 
     public void setAmount(Integer amount) {
         this.amount = amount;
-    }
-
-    public Double getArea() {
-        return area;
-    }
-
-    public void setArea(Double area) {
-        this.area = area;
     }
 
     public Double getGreenSpace() {
