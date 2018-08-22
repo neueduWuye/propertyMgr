@@ -15,8 +15,8 @@ public class ManagerService {
     * @param manager
     * @return
     */
-   public Manager getManagerByName( Manager manager) {
-	return managerMapper.getManagerByNmaePwd(manager);
+   public Manager getManagerByName(String name,String pwd) {
+	return managerMapper.getManagerByNmaePwd(name,pwd);
    }
    /**
     * 注册

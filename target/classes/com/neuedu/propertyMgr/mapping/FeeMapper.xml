@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.neuedu.propertyMgr.dao.FeeMapper" >
-  <resultMap id="BaseResultMap" type="com.neuedu.propertyMgr.model.Fee" >
+  <resultMap id="BaseResultMap" type="com.neuedu.propertyMgr.pojo.Fee" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="owner" property="owner" jdbcType="VARCHAR" />
     <result column="peoperty" property="peoperty" jdbcType="DOUBLE" />
@@ -16,82 +16,10 @@
     <result column="last_time" property="lastTime" jdbcType="TIMESTAMP" />
     <result column="this_time" property="thisTime" jdbcType="TIMESTAMP" />
   </resultMap>
-  <sql id="Example_Where_Clause" >
-    <where >
-      <foreach collection="oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause" >
-    <where >
-      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
   <sql id="Base_Column_List" >
     id, owner, peoperty, peo_type, repair, repair_type, parking, park_type, other, all, 
     overage, last_time, this_time
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.neuedu.propertyMgr.model.FeeExample" >
-    select
-    <if test="distinct" >
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from fee
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null" >
-      order by ${orderByClause}
-    </if>
-  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
@@ -102,13 +30,7 @@
     delete from fee
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.neuedu.propertyMgr.model.FeeExample" >
-    delete from fee
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.neuedu.propertyMgr.model.Fee" >
+  <insert id="insert" parameterType="com.neuedu.propertyMgr.pojo.Fee" >
     insert into fee (id, owner, peoperty, 
       peo_type, repair, repair_type, 
       parking, park_type, other, 
@@ -120,7 +42,7 @@
       #{all,jdbcType=DOUBLE}, #{overage,jdbcType=DOUBLE}, #{lastTime,jdbcType=TIMESTAMP}, 
       #{thisTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.neuedu.propertyMgr.model.Fee" >
+  <insert id="insertSelective" parameterType="com.neuedu.propertyMgr.pojo.Fee" >
     insert into fee
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -205,79 +127,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.neuedu.propertyMgr.model.FeeExample" resultType="java.lang.Integer" >
-    select count(*) from fee
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map" >
-    update fee
-    <set >
-      <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
-      </if>
-      <if test="record.owner != null" >
-        owner = #{record.owner,jdbcType=VARCHAR},
-      </if>
-      <if test="record.peoperty != null" >
-        peoperty = #{record.peoperty,jdbcType=DOUBLE},
-      </if>
-      <if test="record.peoType != null" >
-        peo_type = #{record.peoType,jdbcType=INTEGER},
-      </if>
-      <if test="record.repair != null" >
-        repair = #{record.repair,jdbcType=DOUBLE},
-      </if>
-      <if test="record.repairType != null" >
-        repair_type = #{record.repairType,jdbcType=INTEGER},
-      </if>
-      <if test="record.parking != null" >
-        parking = #{record.parking,jdbcType=DOUBLE},
-      </if>
-      <if test="record.parkType != null" >
-        park_type = #{record.parkType,jdbcType=INTEGER},
-      </if>
-      <if test="record.other != null" >
-        other = #{record.other,jdbcType=DOUBLE},
-      </if>
-      <if test="record.all != null" >
-        all = #{record.all,jdbcType=DOUBLE},
-      </if>
-      <if test="record.overage != null" >
-        overage = #{record.overage,jdbcType=DOUBLE},
-      </if>
-      <if test="record.lastTime != null" >
-        last_time = #{record.lastTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.thisTime != null" >
-        this_time = #{record.thisTime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map" >
-    update fee
-    set id = #{record.id,jdbcType=INTEGER},
-      owner = #{record.owner,jdbcType=VARCHAR},
-      peoperty = #{record.peoperty,jdbcType=DOUBLE},
-      peo_type = #{record.peoType,jdbcType=INTEGER},
-      repair = #{record.repair,jdbcType=DOUBLE},
-      repair_type = #{record.repairType,jdbcType=INTEGER},
-      parking = #{record.parking,jdbcType=DOUBLE},
-      park_type = #{record.parkType,jdbcType=INTEGER},
-      other = #{record.other,jdbcType=DOUBLE},
-      all = #{record.all,jdbcType=DOUBLE},
-      overage = #{record.overage,jdbcType=DOUBLE},
-      last_time = #{record.lastTime,jdbcType=TIMESTAMP},
-      this_time = #{record.thisTime,jdbcType=TIMESTAMP}
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.propertyMgr.model.Fee" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.propertyMgr.pojo.Fee" >
     update fee
     <set >
       <if test="owner != null" >
@@ -319,7 +169,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.neuedu.propertyMgr.model.Fee" >
+  <update id="updateByPrimaryKey" parameterType="com.neuedu.propertyMgr.pojo.Fee" >
     update fee
     set owner = #{owner,jdbcType=VARCHAR},
       peoperty = #{peoperty,jdbcType=DOUBLE},

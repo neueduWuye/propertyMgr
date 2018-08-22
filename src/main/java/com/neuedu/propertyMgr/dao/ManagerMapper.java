@@ -17,5 +17,5 @@ public interface ManagerMapper {
 
     int updateByPrimaryKey(Manager record);
     
-    Manager getManagerByNmaePwd( Manager manager);
+    Manager getManagerByNmaePwd(@Param(value = "name") String name,@Param(value = "pwd") String pwd);
 }

@@ -17,7 +17,7 @@ background:url("../images/header-background.jpg") repeat-x 0 139px;
 	margin:0 auto;
 	width:1000px;
 	height:575px;
-	background:url("../images/header.jpg");
+	background:url("images/header.jpg");
 	}
 		#login{
 		float:right;

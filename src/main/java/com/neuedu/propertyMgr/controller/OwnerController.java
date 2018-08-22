@@ -24,7 +24,7 @@ public class OwnerController {
 	@RequestMapping(value="/getOwner", method=RequestMethod.GET)
 	public ModelAndView getOwner(@RequestParam("name") String name,@RequestParam("pwd") String pwd) {
 		System.out.println(pwd);
-		System.out.println(pwd);
+		System.out.println(name);
 		Owner user=ownerService.getOwner(name,pwd);
 		ModelAndView model=new ModelAndView("index");
 		model.addObject("owner",user);

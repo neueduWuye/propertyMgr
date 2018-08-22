@@ -13,13 +13,13 @@
 		http://www.springframework.org/schema/mvc 
 		http://www.springframework.org/schema/mvc/spring-mvc.xsd 
 		http://www.springframework.org/schema/tx 
-		http://www.springframework.org/schema/tx/spring-tx.xsd ">
+		http://www.springframework.org/schema/tx/spring-tx.xsd "> 
 
 
 	<!-- 配置数据源 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://localhost:3306/demo?useUnicode=true&amp;characterEncoding=UTF-8"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/propertymgr?useUnicode=true&amp;characterEncoding=UTF-8"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="123456"></property>
 	</bean>
@@ -30,7 +30,7 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	<!-- 启用事物注解 -->
-	<tx:annotation-driven transaction-manager="transactionManager" />
+	<tx:annotation-driven transaction-manager="transactionManager" /> 
 
 	<!-- mapper文件映射 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
@@ -75,14 +75,14 @@
 	</bean>
 
 	<!-- 视图解析器 -->
-	<bean
+    	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/" />
 		<property name="suffix" value=".jsp" />
-	</bean>
+	   </bean>
 
 	<!-- 允许静态资源 -->
-	<mvc:resources location="/img/" mapping="/img/**" />
+	<mvc:resources location="/images/" mapping="/images/**" />
 	<mvc:resources location="/js/" mapping="/js/**" />
 	<mvc:resources location="/css/" mapping="/css/**" />
 

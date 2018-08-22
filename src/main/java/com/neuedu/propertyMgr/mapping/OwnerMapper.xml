@@ -17,9 +17,9 @@
   <sql id="Base_Column_List" >
     id, name, pwd, sex, birthday, number, phone, idCard, family, email, join_date
   </sql>
-  <select id="getOwnerByNamePwd" resultMap="BaseResultMap" parameterType="java.lang.String">
+  <select id="getOwnerByNamePwd" resultMap="BaseResultMap">
     select
-    <include refid="Base_Column_List"/>
+    <include refid="Base_Column_List"   />
     from owner
     where name=#{name} and pwd=#{pwd} 
   </select>

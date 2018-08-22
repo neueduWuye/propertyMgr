@@ -4,13 +4,13 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-    <title>添加家庭成员</title>
+    <title>修改家庭成员</title>
 	<link type="text/css" href="css/table.css" rel="stylesheet" />
 	<link type="text/css" href="css/mail.css" rel="stylesheet" />
 	<script type="text/javascript" src="js/jquery.js" ></script>
 </head>
 <body>
-	<h1>添加家庭成员</h1>
+	<h1>修改家庭成员</h1>
 	<table class="bordered new-bordered" >
 		<tr>
 			<th>与业主关系</th>        

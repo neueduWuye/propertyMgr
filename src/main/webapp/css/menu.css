@@ -80,7 +80,7 @@
     text-shadow:#222 -1px -1px 0;
     background:url("../images/item.png") no-repeat left -274px;
 }
-#menu a span { background:url("../images/item.png") no-repeat right -4px; }
+#menu a span { background:url("images/item.png") no-repeat right -4px; }
 #menu li.current>a { background-position:left -319px; }
 #menu li.current>a span { background-position:right -94px; }
 #menu a.parent span {
@@ -198,7 +198,7 @@
 #menu.active .spanbox {
     position:absolute;
     display:none;
-    background:url("../images/pix.gif");
+    background:url("images/pix.gif");
     margin-top:-5px;
     width:200px;
 }

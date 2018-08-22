@@ -27,7 +27,7 @@ img{
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: url(../img/cloud.png) no-repeat;
+	background: url(../images/cloud.png) no-repeat;
 	z-index: 1;
 	opacity: 0.5;
 }
@@ -39,7 +39,7 @@ img{
 	height: 47px;
 	position: absolute;
 	top: 0;
-	background: url(../img/loginbg1.png)repeat-x;
+	background: url(../images/loginbg1.png)repeat-x;
 	z-index: 100;
 	width: 100%;
 }
@@ -47,14 +47,14 @@ img{
 	color: #000000;
 	font-size: 14px;
 	line-height: 47px;
-	background:url(../img/loginsj.png) no-repeat 21px 18px; 
+	background:url(../images/loginsj.png) no-repeat 21px 18px; 
 	text-indent:44px; 
 	color:#afc5d2;
 	float: left;
 }
 /*-----------------------分割线-----------------------*/	
 .loginbody{
-	background: url(../img/loginbg3.png)no-repeat center center;
+	background: url(../images/loginbg3.png)no-repeat center center;
 	width: 100%;
 	height: 600px;
 	overflow: hidden;
@@ -87,7 +87,7 @@ img{
 .loginbox{
 	width: 850px;
 	height: 450px;
-	background: url(../img/logininfo.png) no-repeat;
+	background: url(../images/logininfo.png) no-repeat;
 	background-size: 100% 100%;
 	margin-top: 30px;
 	position: absolute;
@@ -104,7 +104,7 @@ img{
 .loginuser{
 	width: 193px;
 	height: 48px;
-	background: url(../img/loginuser.png) no-repeat;
+	background: url(../images/loginuser.png) no-repeat;
 	border: none;
 	line-height: 48px;
 	padding-left: 150px;
@@ -115,7 +115,7 @@ img{
 .loginpwd{
 	width: 193px;
 	height: 48px;
-	background: url(../img/loginpassword.png) no-repeat;
+	background: url(../images/loginpassword.png) no-repeat;
 	border: none;
 	line-height: 48px;
 	padding-left: 150px;
@@ -147,7 +147,7 @@ img{
 .yzm{
 	width: 341px;
 	height: 40px;
-	background: url(../img/yzmbg.png)no-repeat;
+	background: url(../images/yzmbg.png)no-repeat;
 	padding-bottom: 5px;
 	border: none;
 	opacity: 0.5;
@@ -178,7 +178,7 @@ img{
 .loginbtn,.loginregist{
 	width: 111px;
 	height: 35px;
-	background: url(../img/buttonbg.png)repeat-x;
+	background: url(../images/buttonbg.png)repeat-x;
 	font-size: 14px;
 	font-weight: bold;
 	color: #fff;

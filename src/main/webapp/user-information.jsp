@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,11 +15,12 @@
 	<table class="bordered new-bordered">
 		<tr>
 			<th>房号</th>        
-			<td id="number"></td> 
+			<td id="number">${sessionScope.owner.number}</td> 
+			
 		</tr>        
 		<tr>
 			<th>姓名</th>         
-			<td id="name"></td>
+			<td id="name">${sessionScope.owner.name}</td>
 		</tr>
 		<tr>
 			<th>性别</th>         
@@ -25,19 +28,19 @@
 		</tr>  
 		<tr>
 			<th>生日</th> 
-			<td id="birth"></td>
+			<td id="birth">${sessionScope.owner.birthday}</td>
 		</tr>
 		<tr>
 			<th>身份证</th> 
-			<td id="idcard"></td>
+			<td id="idcard">${sessionScope.owner.idcard}</td>
 		</tr>
 		<tr>
 			<th>电话号码</th> 
-			<td id="phone"></td>
+			<td id="phone">${sessionScope.owner.phone}</td>
 		</tr>
 		<tr>
 			<th>电子邮件</th> 
-			<td id="email"></td>
+			<td id="email">${sessionScope.owner.email}</td>
 		</tr>
 	</table>
 	<a id="submit" href="user-alter.jsp">修改</a>
@@ -45,12 +48,12 @@
 </html>
 <script type="text/javascript">
 	$(function(){
-		$("#number").html();
-		$("#name").html();
-		$("#sex").html();
-		$("#birth").html();
-		$("#idcard").html();
-		$("#phone").html();
-		$("#email").html();
+		if(${sessionScope.owner.sex}==1){
+			$("#sex").html("男");
+		}else{
+			$("#sex").html("女");
+		}
+	
 	})
+	
 </script>

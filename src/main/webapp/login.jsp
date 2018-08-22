@@ -10,6 +10,7 @@
 		<script type="text/javascript " src="js/jquery-3.3.1.min.js"></script>
 	</head>
 	<body style="background-color:#1c77ac ; background-image: url(img/light.png);background-repeat: no-repeat;background-position: center top;overflow: hidden;">
+		<form action="http://localhost:8080/PropertyMgr/getManager">
 		<div id="mainBody">
 			<div id="cloud1" class="cloud"></div>
 			<div id="cloud2" class="cloud"></div>
@@ -25,7 +26,7 @@
 			<div class="loginbox">
 				<ul>
 					<li>
-						<input type="text" class="loginuser" name="ownername" placeholder="用户名" value="" onclick=""/><span id="nameMsg"></span>
+						<input type="text" class="loginuser" name="name" placeholder="用户名" value="" onclick=""/><span id="nameMsg"></span>
 					</li>
 					<li>
 						<input type="password" class="loginpwd" name="pwd" placeholder="密码" onclick=""/><span id="pwdMsg"></span>
@@ -37,42 +38,19 @@
 						<cite>X3D5S</cite>
 					</li>
 					<li id="usertype">
-						<input name="type" type="radio" class="logintype" value="管理员"/><span>管理员</span>
-						<input name="type" type="radio" class="logintype" value="业主"/><span>业主</span>
+						<input name="type" type="radio" class="logintype" value="0"/><span>管理员</span>
+						<input name="type" type="radio" class="logintype" value="1"/><span>业主</span>
 					</li>
 					<li>
-						<input type="button" class="loginbtn" name="" id="login" value="登录" onclick=""/>
-						<input type="button" class="loginregist" name="" id="regist" value="注册" onclick=""/>
+						<input type="submit" class="loginbtn" name="" id="login" value="登录"/>
+						<input type="submit" class="loginregist" name="" id="regist" value="注册"/>
 					</li>
 				</ul>
 			</div>		
 		</div>
-		
+		</form>
 	</body>
 	<script type="text/javascript">
-	$(function(){
-		$("#login").click(function(){
-			alert("click");
-			
-			var owner=$(".loginuser").val();
-			var pwd=$(".loginpwd").val();
-			
-			$.ajax({
-				
-				url:"http://localhost:8080/pmgr/owner/login",
-				data:{"name":owner,"pwd":pwd},
-				type:"POST",
-				dataType:"json",
-				success:function(data){
-					if(data!=null){
-						alert("aaa")
-						window.location.href="index.jsp"
-					}else{
-						alert("xxx");
-					}
-				}
-			})
-		})
-	})
+
 	</script>
 </html>

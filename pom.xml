@@ -5,11 +5,10 @@
 	<artifactId>crm</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>blog Maven Webapp</name> 
+	<name>blog Maven Webapp</name>
 	<url>http://maven.apache.org</url>
-	
-	 
-	<!-- 版本配置 --> 
+
+	<!-- 版本配置 -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.1.4.RELEASE</spring.version>
@@ -20,12 +19,12 @@
 		<fastjson.version>1.2.9</fastjson.version>
 		<jstl.version>1.2</jstl.version>
 		<jsp.version>2.2</jsp.version>
-		<servlet.version>3.0.1</servlet.version>
+		<servlet.version>3.0.1</servlet.version> 
 		<log4j.version>1.2.17</log4j.version>
 		<aspectj.version>1.8.9</aspectj.version>
 	</properties>
 
-	<dependencies>
+	<dependencies> 
 
 		<!-- Spring包 -->
 		<dependency>
