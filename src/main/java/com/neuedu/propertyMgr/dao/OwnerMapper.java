@@ -1,9 +1,11 @@
 package com.neuedu.propertyMgr.dao;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.neuedu.propertyMgr.pojo.Owner;
 
 public interface OwnerMapper {
-	Owner getOwnerByNamePwd(Owner owner);
+	Owner getOwnerByNamePwd(@Param(value="name") String name,@Param(value="pwd") String pwd);
 	
     int deleteByPrimaryKey(Integer id);
 

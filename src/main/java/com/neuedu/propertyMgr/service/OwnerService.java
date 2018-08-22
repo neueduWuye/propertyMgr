@@ -11,8 +11,8 @@ import com.neuedu.propertyMgr.pojo.Owner;
 public class OwnerService {
 	@Autowired
   private OwnerMapper ownerMapper;
-	public Owner getOwner(Owner owner) {
-		return ownerMapper.getOwnerByNamePwd(owner);
+	public Owner getOwner(String name,String pwd) {
+		return ownerMapper.getOwnerByNamePwd(name,pwd);
 	}
 	/**
 	 * 注册
