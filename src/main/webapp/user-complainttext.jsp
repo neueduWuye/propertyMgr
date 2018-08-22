@@ -5,6 +5,7 @@
     <title>投诉信息</title>
 	<link type="text/css" href="css/table.css" rel="stylesheet" />
 	<link type="text/css" href="css/mail.css" rel="stylesheet" />
+	<script type="text/javascript" src="js/jquery.js" ></script>
 </head>
 <body>
 	<h1>投诉信息</h1>
@@ -17,8 +18,19 @@
 	<table class="bordered new-bordered">
 		<tr>
 			<th id="new-title">内容</th>
-			<td style="word-break:break-all"></td>        
+			<td style="word-break:break-all" id="content"></td>       
 		</tr>
+		
+	</table>
+	<table class="bordered new-bordered">
+		<tr>
+			<th id="new-title">反馈内容</th>
+			<td style="word-break:break-all" id="back"><div id="text-title">暂无反馈</div><div >反馈时间:<span id="backtime"></span></div></td> 
+		</tr>
+		
 	</table>
 </body>
 </html>
+<script type="text/javascript">
+	
+</script>

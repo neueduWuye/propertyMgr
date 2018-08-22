@@ -2,24 +2,24 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-    <title>通知信息</title>
+    <title>投诉</title>
 	<link type="text/css" href="css/table.css" rel="stylesheet" />
 	<link type="text/css" href="css/mail.css" rel="stylesheet" />
 </head>
 <body>
-	<h1>通知信息</h1>
+	<h1>投诉</h1>
 	<table class="bordered new-bordered">
 		<tr>
-			<th id="new-title" style="word-break:break-all">主题</th>
-			<td><input type="text" style="width:175px;color:gray;height:20px;font-size:18px;" value="title" onfocus="if(this.value=='title'){this.value=''};this.style.color='black';" onblur="if(this.value==''||this.value=='title'){this.value='title';this.style.color='gray';}"/>
-				<div id="date">date</div></td>
+			<th id="new-title">主题</th>
+			<td><input type="text"></input></td>
 		</tr>
 	</table>
 	<table class="bordered new-bordered">
 		<tr>
 			<th id="new-title">内容</th>
-			<td style="word-break:break-all"></td>        
+			<td><textarea id="text-input"></textarea></td>        
 		</tr>
 	</table>
+	<a id="submit">发送</a>
 </body>
 </html>

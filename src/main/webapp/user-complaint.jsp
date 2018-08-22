@@ -19,11 +19,11 @@
 		<tr>
 			<td colspan="3">
 				<div id="read-mail"></div>
-				<a href="user-complainttext.html" id="title" style="word-break:break-all">飞凤飞飞凤飞飞凤飞飞凤飞飞凤飞飞凤飞飞</a>
+				<a href="user-complainttext.jsp" id="title" style="word-break:break-all">飞凤飞飞凤飞飞凤飞飞凤飞飞凤飞飞凤飞飞</a>
 				<div id="date">2121-21-21</div>
 			</td>     			
 		</tr> 
 	</table>
-	<a id="submit" href="user-newcomplaint.html">投诉</a>
+	<a id="submit" href="user-newcomplaint.jsp">投诉</a>
 </body>
 </html>

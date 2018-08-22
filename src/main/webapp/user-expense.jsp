@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<script type="text/javascript" src="js/jquery.js","js/jquery-1.4.2.min.js">
@@ -39,11 +39,13 @@
 		</tr>        
 	</table>
 	<table class="bordered">
-		<tr>
-			<th style="width:100px;text-align:center;">已付</th><td id="ed"></td>
-			<th style="width:100px;text-align:center;">未付</th><td style="width:120px;text-align:center;" id="not"></td>
-		</tr>
+		
 		<button style="width: 115px;height: 30px;" class="pay1">支付</button>
+		<div id="pay" >
+			<img src="images/pay.jpg" width="200px" />
+			向我支付<span id="prompt">111</span>元<br />
+			<button id="com">确认支付</button>
+		</div>
 		<tr>
 			<th style="width:100px;text-align:center;">支付状态</th><td id="sta">未支付</td>
 			<th style="width:100px;text-align:center;">付款时间</th><td style="width:120px;text-align:center;" id="date"></td>
@@ -54,9 +56,9 @@
 </html>
 <script type="text/javascript">
 	$(function(){
-		alert("xxx") 
-		$("#search").click(function(){
 		var num,repair=1,pro=2,park=3,other=4;
+		$("#search").click(function(){
+		
 		$("#number").html();
 		$("#repair").html();
 		$("#pro").html();
@@ -67,11 +69,15 @@
 			$("#all").html(repair+pro+park+other);
 		})
 		$(".pay1").click(function(){
-			var todo; 
-			todo=prompt("请支付");
-			$("#ed").html(todo);
+			$("#pay").show();
+			$("#prompt").html(repair+pro+park+other);
+		})
+		$("#com").click(function(){
+			
 			$("#sta").html("已支付")
 			$("#date").html(Date) 
+			$("#pay").hide();
+//			$( "date" ).datepicker({ dateFormat: 'yy-mm-dd' });
 		})
 	})
 </script>

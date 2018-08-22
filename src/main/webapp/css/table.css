@@ -168,7 +168,7 @@ border:none;
 }
 .new-bordered th{
 text-align:center;
-width:150px;
+width:130px;
 }
 
 
@@ -223,7 +223,9 @@ border-radius:25px;
 box-shadow: 1px 1px 3px #888;
 text-decoration:none;
 }
-
+#pay{
+	display: none;
+}
 #admin-textarea{
 height:120px;
 width:400px;

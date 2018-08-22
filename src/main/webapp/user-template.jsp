@@ -83,7 +83,7 @@
 					</ul>
 				</div>
 			</div>
-			<a id="exit" href="index.html">退出登录</a>
+			<a id="exit" href="index.jsp">退出登录</a>
 		</div>
 	</div>
 	<div id="content">
@@ -95,7 +95,7 @@
 							<div class="border" ></div>
 							<span class="icon">U</span>
 							<div class="text">
-								<h2><a href="user-information.html" target="iframe_a">个人信息</a></h2>
+								<h2><a href="user-information.jsp" target="iframe_a">个人信息</a></h2>
 								<h3>personsl information</h3>
 							</div>
 						</li>
@@ -103,7 +103,7 @@
 							<div class="border"></div>
 							<span class="icon">O</span>
 							<div class="text">
-								<h2><a href="user-information.html" target="iframe_a">家庭成员</a></h2>
+								<h2><a href="user-family.jsp" target="iframe_a">家庭成员</a></h2>
 								<h3>family information</h3>
 							</div>
 						</li>
@@ -119,7 +119,7 @@
 							<div class="border"></div>
 							<span class="icon">e</span>
 							<div class="text">
-								<h2><a href="user-notice.html" target="iframe_a">查看通知</a></h2>
+								<h2><a href="user-notice.jsp" target="iframe_a">查看通知</a></h2>
 								<h3>notice</h3>
 							</div>
 						</li>
@@ -127,7 +127,7 @@
 							<div class="border"></div>
 							<span class="icon">Z</span>
 							<div class="text">
-								<h2><a href="user-complaint.html" target="iframe_a">投诉信箱</a></h2>
+								<h2><a href="user-complaint.jsp" target="iframe_a">投诉信箱</a></h2>
 								<h3>complaint box</h3>
 							</div>
 						</li>

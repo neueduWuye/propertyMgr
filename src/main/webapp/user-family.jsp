@@ -1,47 +1,46 @@
-<%@page contentType="text/html"%>
-<%@page pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-    <title>家庭成员信息</title>
+    <title>家庭成员</title>
 	<link type="text/css" href="css/table.css" rel="stylesheet" />
-	<script type="text/javascript" src="js/jquery.js","js/jquery-1.4.2.min.js">
-		
-	</script>
 </head>
 <body>
 	<h1>家庭成员信息</h1>
-	<table class="bordered new-bordered">
+	
+	<table class="bordered rules-bordered">
+		<thead>
 		<tr>
-			<th>房号</th>        
-			<td></td>
-		</tr>        
-		<tr>
-			<th>姓名</th>         
-			<td></td>
+			<th>姓名</th>        
+			<th>性别</th>
+			<th>生日</th>      
+			<th>与业主关系</th>
+			<th>电话号码</th>
+			<th>身份证号</th>
+			<th>编辑</th>      
+			<th>删除</th>			
 		</tr>
-		<tr>
-			<th>性别</th>         
-			<td></td>
-		</tr>  
-		<tr>
-			<th>生日</th> 
-			<td></td>
-		</tr>
-		<tr>
-			<th>身份证</th> 
-			<td></td>
-		</tr>
-		<tr>
-			<th>电话号码</th> 
-			<td></td>
-		</tr>
-		<tr>
-			<th>电子邮件</th> 
-			<td></td>
+		</thead>
+		<tr> 
+			<td id="name">111</td>  
+			<td id="sex">辽A</td>		
+			<td id="birth">22</td>  
+			<td id="ralation">30</td> 
+			<td id="phone">11</td>
+			<td id="email">11</td>
+			<td><a id="table-submit" name="edit">编辑</a></td>
+			<td><a id="table-submit" name="delete">删除</a></td>     			
 		</tr>
 	</table>
-	<a id="submit" href="user-alter.html">修改</a>
+	<table class="page">
+		<tr>
+			<td><a href="">首页</a></td>
+			<td><a href="">上页</a></td>
+			<td style="width:50px;">1/1</td>
+			<td><a href="">下页</a></td>
+			<td><a href="">尾页</a></td>
+		</tr>
+	</table>
+	<a id="submit" href="user-newfamily.jsp">新增</a>
 </body>
 </html>
