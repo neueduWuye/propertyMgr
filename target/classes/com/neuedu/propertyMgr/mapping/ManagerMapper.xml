@@ -20,12 +20,18 @@
     from manager
     where name=#{name} and pwd=#{pwd}
   </select>
+  
+  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from manager
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <delete id="deleteByNumber" parameterType="java.lang.String" >
+    delete from owner
+    where number = #{number,jdbcType=VARCHAR}
+  </delete>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from manager
     where id = #{id,jdbcType=INTEGER}

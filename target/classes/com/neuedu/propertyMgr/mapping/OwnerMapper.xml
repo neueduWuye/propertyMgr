@@ -8,7 +8,7 @@
     <result column="sex" property="sex" jdbcType="INTEGER" />
     <result column="birthday" property="birthday" jdbcType="DATE" />
     <result column="number" property="number" jdbcType="VARCHAR" />
-    <result column="phone" property="phone" jdbcType="INTEGER" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="idCard" property="idcard" jdbcType="VARCHAR" />
     <result column="family" property="family" jdbcType="INTEGER" />
     <result column="email" property="email" jdbcType="VARCHAR" />
@@ -17,11 +17,34 @@
   <sql id="Base_Column_List" >
     id, name, pwd, sex, birthday, number, phone, idCard, family, email, join_date
   </sql>
+  <select id="getCount" resultType="int">
+		select count(1) from owner
+	</select>
+	<select id="getOwnerByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+  		select
+    <include refid="Base_Column_List"   /> 
+    from owner where name=#{name,jdbcType=VARCHAR}
+  </select>
+  <select id="getOwnerByNumber" resultMap="BaseResultMap" parameterType="java.lang.String">
+  		select
+    <include refid="Base_Column_List"   /> 
+    from owner where number=#{number,jdbcType=VARCHAR}
+  </select>
+	<select id="getUserTypeByWhere" parameterType="java.util.Map"
+		>
+		select <include refid="Base_Column_List"   /> 
+		from owner  limit #{stratIndex},#{pageSize}
+	</select>
   <select id="getOwnerByNamePwd" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"   />
     from owner
     where name=#{name} and pwd=#{pwd} 
+  </select>
+  <select id="getAllOwner" resultMap="BaseResultMap">
+  	select
+  	<include refid="Base_Column_List"   />
+  	from owner
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -34,13 +57,13 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.neuedu.propertyMgr.pojo.Owner" >
-    insert into owner (id, name, pwd, 
+    insert into owner ( name, pwd, 
       sex, birthday, number, 
       phone, idCard, family, 
       email, join_date)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, 
+    values ( #{name,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, 
       #{sex,jdbcType=INTEGER}, #{birthday,jdbcType=DATE}, #{number,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=INTEGER}, #{idcard,jdbcType=VARCHAR}, #{family,jdbcType=INTEGER}, 
+      #{phone,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, #{family,jdbcType=INTEGER}, 
       #{email,jdbcType=VARCHAR}, #{joinDate,jdbcType=DATE})
   </insert>
   <insert id="insertSelective" parameterType="com.neuedu.propertyMgr.pojo.Owner" >
@@ -100,7 +123,7 @@
         #{number,jdbcType=VARCHAR},
       </if>
       <if test="phone != null" >
-        #{phone,jdbcType=INTEGER},
+        #{phone,jdbcType=VARCHAR},
       </if>
       <if test="idcard != null" >
         #{idcard,jdbcType=VARCHAR},
@@ -135,7 +158,7 @@
         number = #{number,jdbcType=VARCHAR},
       </if>
       <if test="phone != null" >
-        phone = #{phone,jdbcType=INTEGER},
+        phone = #{phone,jdbcType=VARCHAR},
       </if>
       <if test="idcard != null" >
         idCard = #{idcard,jdbcType=VARCHAR},
@@ -159,7 +182,7 @@
       sex = #{sex,jdbcType=INTEGER},
       birthday = #{birthday,jdbcType=DATE},
       number = #{number,jdbcType=VARCHAR},
-      phone = #{phone,jdbcType=INTEGER},
+      phone = #{phone,jdbcType=VARCHAR},
       idCard = #{idcard,jdbcType=VARCHAR},
       family = #{family,jdbcType=INTEGER},
       email = #{email,jdbcType=VARCHAR},

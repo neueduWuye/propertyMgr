@@ -85,7 +85,7 @@
 					</ul>
 				</div>
 			</div>
-			<a id="exit" href="index.jsp">退出登录</a>
+			<a id="exit" href="login.jsp">退出登录</a>
 		</div>
 	</div>
 	<div id="content">

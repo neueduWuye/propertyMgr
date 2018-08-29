@@ -2,9 +2,13 @@ package com.neuedu.propertyMgr.controller;
 
 
 
+import java.util.List;
+import java.util.regex.Pattern;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,13 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mysql.fabric.xmlrpc.base.Data;
 import com.neuedu.propertyMgr.pojo.Manager;
 import com.neuedu.propertyMgr.pojo.Owner;
+import com.neuedu.propertyMgr.pojo.Pager;
 import com.neuedu.propertyMgr.service.ManagerService;
 import com.neuedu.propertyMgr.service.OwnerService;
 
 
-@RestController
+@Controller
 public class ManagerController {
     @Autowired
     private ManagerService managerService;
@@ -34,12 +40,11 @@ public class ManagerController {
 	public ModelAndView getManagerByNamePwd(HttpSession session, @RequestParam("name") String name,@RequestParam("pwd") String pwd,@RequestParam("type") int type)
 	throws Exception{
 		ModelAndView model=new ModelAndView();
-		System.out.println(type);
 		if (type==0) {
 			Manager manager = managerService.getManagerByName(name,pwd);
 			model.addObject("manager",manager);
 			session.setAttribute("manager", manager);
-			model.setViewName("index");
+			model.setViewName("admin-template");
 			return model;
 		}else {
 			Owner owner=ownerService.getOwner(name, pwd);
@@ -82,6 +87,51 @@ public class ManagerController {
 			System.out.println("删除失败");
 		}
 		return rs;
+		
+	}
+	/*
+	 * 删除住户
+	 */
+	@RequestMapping(value="/deleteOwner")
+	public String  deleteOwnerByNumber(@RequestParam(value="number") String number) {
+		managerService.deleteOwnerByNumber(number);
+		return "admin-owner";
+	}
+	
+	/**
+	 * 分页查询
+	 */
+	@RequestMapping(value = "/getPager/{pageSize}/{pageIndex}")
+	public ModelAndView getPager(@PathVariable("pageSize") int pageSize, @PathVariable("pageIndex") int pageIndex) {
+		ModelAndView model = new ModelAndView("/admin-owner");
+		Pager<Owner> pager = ownerService.getPager(pageIndex, pageSize);
+		model.addObject("pager", pager);
+
+		return model;
+	}
+	
+	/*
+	 * 通过名字/房号查询业主信息
+	 */
+	@RequestMapping(value="/getTheOwner")
+	public ModelAndView getTheOwner(@RequestParam(value="nORn") String nameORnumber) {
+		Owner owner;
+		Pattern pattern = Pattern.compile("^[-\\+]?[\\d]*$"); //判断是否为数字 
+		 ModelAndView mAndView=new ModelAndView("admin-theowner");
+		 
+		if (pattern.matcher(nameORnumber).matches()) {
+			owner=ownerService.getOwnerByNumber(nameORnumber);
+//			if (owner.getSex()==1) {
+//				mAndView.addObject("sex", "男");
+//			}else {
+//				mAndView.addObject("sex", "女");
+//			}
+			mAndView.addObject(owner);
+		}else {
+			owner=ownerService.getOwnerByName(nameORnumber);
+			mAndView.addObject(owner);
+		}
+		return mAndView;
 		
 	}
 }

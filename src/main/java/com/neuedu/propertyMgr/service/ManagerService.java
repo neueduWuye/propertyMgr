@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 
 import com.neuedu.propertyMgr.dao.ManagerMapper;
 import com.neuedu.propertyMgr.pojo.Manager;
+import com.neuedu.propertyMgr.pojo.Owner;
+
 
 @Service
 public class ManagerService {
@@ -42,4 +44,10 @@ public class ManagerService {
 	return managerMapper.deleteByPrimaryKey(id);
 	   
    }
+   
+   public int deleteOwnerByNumber(String number) {
+	   return managerMapper.deleteByNumber(number);
+   }
+   
+  
 }

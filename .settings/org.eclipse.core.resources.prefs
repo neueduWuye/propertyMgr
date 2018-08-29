@@ -1,5 +1,11 @@
 eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
+encoding//src/main/resources=UTF-8
 encoding//src/main/webapp/admin-alterparking.jsp=UTF-8
+encoding//src/main/webapp/admin-newowner.jsp=UTF-8
+encoding//src/main/webapp/admin-owner.jsp=UTF-8
+encoding//src/main/webapp/admin-template.jsp=UTF-8
+encoding//src/main/webapp/admin-theowner.jsp=UTF-8
 encoding//src/main/webapp/index.jsp=UTF-8
 encoding//src/main/webapp/user-alter.jsp=UTF-8
 encoding//src/main/webapp/user-complaint.jsp=UTF-8
